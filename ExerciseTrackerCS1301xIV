@@ -1,0 +1,55 @@
+### Exercise Tracker
+
+## This is an exercise tracker which implements constructor, getter and setter methods (uncommon in Python, however useful in some instances). 
+## The first part of the program has a constructor that requires two strings (for exercise's name and intensity) and an integer for the duration
+## in minutes. These atributes are saved in the instance of the class, for user's convenience. Then, the getters should return all object's variables
+## respectively and the setters will allow users to modify the values as needed. The last part of the program has a calorie burner calculator, which 
+## will consider that a low intensity exercise burns 4 calories per minute, a medium one burns 8 calories per minute, and a high intensity one burns
+## 12 calories per minute.
+
+# ExerciseSession has three attributes: an exercise name, an intensity, and a duration.
+
+class ExerciseSession:
+    def __init__(self, exercise, intensity, duration):
+        self.exercise=exercise
+        self.intensity=intensity
+        self.duration=duration
+        
+# Getter methods will automatically return exercise, intensity and duration
+
+    def get_exercise(self):
+        return self.exercise
+
+    def get_intensity(self):
+        return self.intensity
+
+    def get_duration(self):
+        return self.duration
+
+# Setter methods will update object's variables as requested by user
+
+    def set_exercise(self, new_exercise):
+        self.exercise = new_exercise
+        
+    def set_intensity(self, new_intensity):
+        self.intensity = new_intensity
+
+    def set_duration(self, new_duration):
+        self.duration = new_duration
+
+# calories_burned doesn't need any parameters and will return the number of calories burned according to the following formula:
+# User burns 4 calories per minute in low intensity.
+# User burns 8 calories per minute in medium intensity.
+# User burns 12 calories per minute in high intensity.
+
+    def calories_burned(self):
+        if self.intensity == "Low":
+            return 4 * self.duration
+        elif self.intensity == "Medium":
+            return 8 * self.duration
+        else:
+            return 12 * self.duration
+
+# Requests to this tracker are intended to be performed as variables, for example:
+# new_exercise = ExerciseSession(exercise="Running", intensity="Low", duration=60) or
+# new_exercise = ExerciseSession("Running", "Low", 60)
